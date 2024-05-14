@@ -10,6 +10,14 @@ public class PeopleComparator implements Comparator<Person> {
 
     @Override
     public int compare(Person p1, Person p2) {
-        return 0; // TODO
+        if(p1 == null && p2 == null){
+            return 0;
+        }
+        if(p1 == null) return -1;
+        if(p2 == null) return 1;
+
+        Comparator<String> sc = new Comparator<String>();
+        
+        return sc.compare(p1.getName(), p2.getName());
     }
 }
