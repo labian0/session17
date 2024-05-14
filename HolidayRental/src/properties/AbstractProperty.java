@@ -69,10 +69,10 @@ public abstract class AbstractProperty {
         // TODO
     }
     public void setRent(Rent newRent) {
-        // TODO
+        this.currentRent = newRent;
     }
     public void endRent() {
-        // TODO
+        this.setRent(null);
     }
     public Rent getRent() {
         return currentRent;
