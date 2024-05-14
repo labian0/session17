@@ -239,7 +239,12 @@ public class UserInteractions {
             }
             break;
             case 6: {
-                // TODO
+                System.out.println("- Person -");
+                Person person = selectPerson();
+                System.out.println("- Property -");
+                AbstractProperty prop = selectProperty();
+                LocalDate date = dateInput("the rental date");
+                myApp.startRent(person, prop, date);  
             }
             break;
             case 7: {
