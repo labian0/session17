@@ -16,8 +16,6 @@ public class PeopleComparator implements Comparator<Person> {
         if(p1 == null) return -1;
         if(p2 == null) return 1;
 
-        Comparator<String> sc = new Comparator<String>();
-        
-        return sc.compare(p1.getName(), p2.getName());
+        return p1.getName().compareTo(p2.getName());
     }
 }
