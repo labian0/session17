@@ -29,7 +29,7 @@ public class Rent {
     }
 
     public void setEnd(LocalDate end) {
-        // TODO
+        this.end = end;
     }
     public double totalPrice() {
         if (end==null) {

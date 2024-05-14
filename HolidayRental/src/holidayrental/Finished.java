@@ -15,7 +15,7 @@ public class Finished implements Predicate<Rent> {
      */
     @Override
     public boolean test(Rent t) {
-        return false; // TODO
+        return t.getEnd() != null;
     }
     
 }
