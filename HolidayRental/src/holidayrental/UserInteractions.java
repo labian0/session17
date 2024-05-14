@@ -162,10 +162,10 @@ public class UserInteractions {
                 }
                 break;
             case 3: {
-                // TODO:
-                // Prompt the user for the data required
-                // Create the Person object
-                // Call the correct method on myApp with the new object
+                String name = ARR_userStringInput("the person's name");
+                Person person = new Person(name);
+                myApp.addPerson(person);
+                System.out.println(name + " added.");
             }
             break;
             case 4: {
