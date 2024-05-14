@@ -342,7 +342,7 @@ public class UserInteractions {
             properties.addAll(set);
         }
         properties.sort(new PriceComparator());
-        return null; // TODO
+        return (AbstractProperty)selectFromCollection(new ArrayList<>(properties));
     }
 
     private Object selectFromCollection(Collection<Object> collection) {
