@@ -57,7 +57,7 @@ public abstract class AbstractProperty {
 
     @Override
     public int hashCode() {
-        return 1; // TODO
+        return this.description.hashCode() + 17*(int)this.price;
     }
 
     @Override

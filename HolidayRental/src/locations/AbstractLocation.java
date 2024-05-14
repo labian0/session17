@@ -28,7 +28,7 @@ public abstract class AbstractLocation implements Predicate<AbstractProperty> {
     }
     @Override
     public int hashCode() {
-        return 1; // TODO
+        return this.description.hashCode();
     }
 
     @Override
