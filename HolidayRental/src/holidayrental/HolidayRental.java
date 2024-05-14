@@ -76,9 +76,14 @@ public class HolidayRental {
     void startRent(Person p, AbstractProperty pro, LocalDate start) {
         // TODO:
         // Create the Rent object
+        Rent rent = new Rent(p,pro,start);
+        
         // Add that object to the collection of rents
+        this.allRents.add(rent);
         // Change the rent of the property
+        pro.setRent(rent);
         // Add the rent to the rent history of the person
+        p.addRent(rent);
     }
 
     void endRent(AbstractProperty property, LocalDate end) {
@@ -86,7 +91,7 @@ public class HolidayRental {
         if (r == null) {
             return;
         }
-        // TODO
+        r.setEnd(end);
     }
 
     Map<AbstractLocation, Set<AbstractProperty>> getPropertiesByLocation() {
