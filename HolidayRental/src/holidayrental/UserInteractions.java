@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -248,7 +249,21 @@ public class UserInteractions {
             }
             break;
             case 7: {
-                // TODO
+                Set<Rent> rents = myApp.getRents();
+                for(Rent rent:rents){
+                    System.out.println("---RENT---");
+                    System.out.println("Tenant name: " + rent.getTenant().getName());
+                    System.out.println("Rent started on: " + rent.getStart());
+                    AbstractProperty pro = rent.getProperty();
+                    System.out.print("Property type: ");
+                    if(pro.isAppartment()){
+                        System.out.println("Appartment");
+                    }else if(pro.isCabin()){
+                        System.out.println("Cabin");
+                    }else if(pro.isHouse()){
+                        System.out.println("House");
+                    }
+                }
             }
             break;
             case 8: {
