@@ -295,7 +295,7 @@ public class UserInteractions {
                 Finished f = new Finished();
                 for(Rent r:rents){
                     if(f.test(r)){
-                        totalMoney += r.getProperty().getPrice();
+                        totalMoney += r.getProperty().getPrice() * r.duration();
                     }
                 }
                 System.out.println("Total money involved in finished rents : "+ totalMoney);

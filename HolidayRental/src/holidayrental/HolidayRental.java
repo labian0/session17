@@ -1,6 +1,7 @@
 package holidayrental;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -8,11 +9,11 @@ import properties.AbstractProperty;
 import people.Person;
 import locations.AbstractLocation;
 import java.util.Set;
-//import locations.BeachArea;
+import locations.BeachArea;
 import locations.CityArea;
 import locations.ForestArea;
 import properties.Appartment;
-//import properties.Cabin;
+import properties.Cabin;
 //import properties.House;
 
 /**
@@ -35,11 +36,21 @@ public class HolidayRental {
     public static void main(String[] args) {
         HolidayRental app = new HolidayRental();
         app.fillInitialData();
-        app.fillAdditionalData();
+        //app.fillAdditionalData();
         new UserInteractions().run(app);
     }
     private void fillAdditionalData() {
-        // Your additional data here.
+        Person p1 = new Person("Greg");
+        everybody.add(p1);
+        
+        AbstractLocation l1 = new BeachArea("Rocky beach");
+        allLocations.add(l1);
+        
+        AbstractProperty pro1 = new Cabin(70.25, "Stilt cabin");
+        allProperties.add(pro1);
+        l1.addProperty(pro1);
+        
+        startRent(p1,pro1,LocalDate.of(2022, Month.AUGUST, 15));
     }
 
     private void fillInitialData() {
