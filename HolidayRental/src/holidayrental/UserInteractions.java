@@ -289,11 +289,18 @@ public class UserInteractions {
                 }
             }
             break;
-            case 9:
+            case 9: {
                 double totalMoney=0.0;
-                // TODO
+                List<Rent> rents = new ArrayList<>(myApp.getRents());
+                Finished f = new Finished();
+                for(Rent r:rents){
+                    if(f.test(r)){
+                        totalMoney += r.getProperty().getPrice();
+                    }
+                }
                 System.out.println("Total money involved in finished rents : "+ totalMoney);
                 break;
+            }
             case 10: {
                 List<Rent> rents = new ArrayList<>(myApp.getRents());
                 rents.removeIf(new Finished().negate());
