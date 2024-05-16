@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -248,7 +249,21 @@ public class UserInteractions {
             }
             break;
             case 7: {
-                // TODO
+                Set<Rent> rents = myApp.getRents();
+                for(Rent rent:rents){
+                    System.out.println("---RENT---");
+                    System.out.println("Tenant name: " + rent.getTenant().getName());
+                    System.out.println("Rent started on: " + rent.getStart());
+                    AbstractProperty pro = rent.getProperty();
+                    System.out.print("Property type: ");
+                    if(pro.isAppartment()){
+                        System.out.println("Appartment");
+                    }else if(pro.isCabin()){
+                        System.out.println("Cabin");
+                    }else if(pro.isHouse()){
+                        System.out.println("House");
+                    }
+                }
             }
             break;
             case 8: {
@@ -274,11 +289,18 @@ public class UserInteractions {
                 }
             }
             break;
-            case 9:
+            case 9: {
                 double totalMoney=0.0;
-                // TODO
+                List<Rent> rents = new ArrayList<>(myApp.getRents());
+                Finished f = new Finished();
+                for(Rent r:rents){
+                    if(f.test(r)){
+                        totalMoney += r.getProperty().getPrice();
+                    }
+                }
                 System.out.println("Total money involved in finished rents : "+ totalMoney);
                 break;
+            }
             case 10: {
                 List<Rent> rents = new ArrayList<>(myApp.getRents());
                 rents.removeIf(new Finished().negate());
@@ -342,7 +364,7 @@ public class UserInteractions {
             properties.addAll(set);
         }
         properties.sort(new PriceComparator());
-        return null; // TODO
+        return (AbstractProperty)selectFromCollection(new ArrayList<>(properties));
     }
 
     private Object selectFromCollection(Collection<Object> collection) {

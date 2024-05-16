@@ -92,6 +92,7 @@ public class HolidayRental {
             return;
         }
         r.setEnd(end);
+        property.endRent();
     }
 
     Map<AbstractLocation, Set<AbstractProperty>> getPropertiesByLocation() {
