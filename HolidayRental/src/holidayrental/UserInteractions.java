@@ -50,7 +50,7 @@ public class UserInteractions {
         menuItems.add("Perform a checkout"); // 8
         menuItems.add("Display the total amount of money involved in finished rentals"); // 9
         menuItems.add("List all finished rentals"); // 10
-        menuItems.add("Search for a property by various criteria"); // 11
+        menuItems.add("Select the property which brought the most income"); // 11
         menuItems.add("Display statistics"); // 12
         locationTypes = new ArrayList<>();
         locationTypes.add("Forest");
@@ -314,9 +314,37 @@ public class UserInteractions {
                 }
             }
             break;
-            case 11:
-                // TODO
+            case 11:{
+                // Get all rents, active and finished
+                List<Rent> rents = new ArrayList<>(myApp.getRents());
+                // Create a map to associate a sum of all rent prices for each property
+                Map<AbstractProperty, Double> pricePerProperty = new HashMap<>();
+                int duration;
+                double fullPrice;
+                AbstractProperty property;
+                for(Rent r:rents){
+                    duration = r.duration(); // number of days between start and end timestamp
+                    if(duration != -1){ // If duration is not -1 then the rent is finished
+                        property = r.getProperty();
+                        fullPrice = duration*property.getPrice(); // price per day*number of days rented is equal to the total price of this rental
+                        if (pricePerProperty.containsKey(property)){ // if the property already exists (and therefore already has previous prices added)
+                            fullPrice += pricePerProperty.get(property); // then add the already registered price to the new value
+                        }
+                        pricePerProperty.put(property, fullPrice); // update the property's full price
+                    }
+                }
+                // TODO: get property with max full price
+                double maxPrice;
+                AbstractProperty maxPro;
+                ArrayList<AbstractProperty> properties = new ArrayList<>(pricePerProperty.keySet());
+                PriceComparator pc = new PriceComparator();
+                properties.sort(pc);
+                maxPro = properties.get(0);
+                maxPrice = pricePerProperty.get(maxPro);
+                System.out.println("The property which brought the most money is " + maxPro.getDescription());
+                System.out.println("Worth " + maxPrice);
                 break;
+            }
             case 12:
                 // TODO
                 break;
