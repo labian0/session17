@@ -13,7 +13,7 @@ public class ForestArea extends AbstractLocation {
 
     @Override
     public boolean test(AbstractProperty t) {
-        return t.isAppartment();
+        return !t.isAppartment();
     }
 
     @Override
