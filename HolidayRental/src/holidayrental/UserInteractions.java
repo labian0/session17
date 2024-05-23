@@ -241,8 +241,10 @@ public class UserInteractions {
             break;
             case 6: {
                 System.out.println("- Person -");
+                printPersons(myApp.getPeople());
                 Person person = selectPerson();
                 System.out.println("- Property -");
+                //PRINT PROPS
                 AbstractProperty prop = selectProperty();
                 LocalDate date = dateInput("the rental date");
                 myApp.startRent(person, prop, date);  
@@ -408,5 +410,21 @@ public class UserInteractions {
         }
         int choice = ARR_userNumericInput(0, strings.size() - 1, "your choice");
         return withId.get(strings.get(choice));
+    }
+    
+    private void printPersons(Set<Person> set){
+        if (!set.isEmpty()){
+            for (Person p:set){
+                System.out.println("- "+p.getName());
+            }
+        }
+    }
+    
+    private void printProperties(Set<AbstractProperty> set){
+        if (!set.isEmpty()){
+            for (AbstractProperty p:set){
+                System.out.println("- "+p.getDescription());
+            }
+        }
     }
 }
