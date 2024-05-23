@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/holidayrental/HolidayRental.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/locations/AbstractLocation.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/holidayrental/Finished.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/properties/AbstractProperty.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/locations/BeachArea.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/holidayrental/Rent.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/properties/PriceComparator.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/people/PeopleComparator.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/holidayrental/UserInteractions.java</file>
-            <file>file:/mnt/netta/users/alalaguebino/R2_01/Cycles/session17/HolidayRental/src/locations/ForestArea.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
