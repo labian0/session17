@@ -240,9 +240,11 @@ public class UserInteractions {
             }
             break;
             case 6: {
-                System.out.println("- Person -");
+                System.out.println("Person");
+                printPersons(myApp.getPeople());
                 Person person = selectPerson();
-                System.out.println("- Property -");
+                System.out.println("Property");
+                printProperties(myApp.getPropertiesByLocation());
                 AbstractProperty prop = selectProperty();
                 LocalDate date = dateInput("the rental date");
                 myApp.startRent(person, prop, date);  
@@ -408,5 +410,24 @@ public class UserInteractions {
         }
         int choice = ARR_userNumericInput(0, strings.size() - 1, "your choice");
         return withId.get(strings.get(choice));
+    }
+    
+    private void printPersons(Set<Person> set){
+        if (!set.isEmpty()){
+            for (Person p:set){
+                System.out.println("- "+p.getName());
+            }
+        }
+    }
+    
+    private void printProperties(Map<AbstractLocation, Set<AbstractProperty>> map){
+        if (!map.isEmpty()){
+            for (AbstractLocation p:map.keySet()){
+                System.out.println("- "+p.getDescription());
+                for (AbstractProperty prop:map.get(p)){
+                    System.out.println("   - "+prop.getDescription());
+                }
+            }
+        }
     }
 }
